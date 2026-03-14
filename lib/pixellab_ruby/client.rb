@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 require_relative 'request'
 
 module PixellabRuby
+  # Client class for interacting with the Pixellab API
   class Client
     AVAILABLE_ROUTES = {
-      :generate_image_pixflux => '/generate-image-pixflux',
-      :get_balance => '/balance'
+      generate_image_pixflux: '/generate-image-pixflux',
+      get_balance: '/balance'
     }.freeze
 
     def initialize(api_key)
@@ -38,7 +41,7 @@ module PixellabRuby
     #
     # end
 
-    def get_balance
+    def get_balance # rubocop:disable Naming/AccessorMethodName
       request = PixellabRuby::Request.new(@api_key, AVAILABLE_ROUTES[:get_balance])
       request.get
     end

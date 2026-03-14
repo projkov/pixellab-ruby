@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 require 'net/http'
 require 'json'
 require 'uri'
 
 module PixellabRuby
+  # Request class for making HTTP requests to the Pixellab API
   class Request
-    SERVER_URL = "https://api.pixellab.ai/v1"
+    SERVER_URL = 'https://api.pixellab.ai/v1'
 
     def initialize(api_key, path)
       @api_key = api_key
@@ -18,7 +21,7 @@ module PixellabRuby
     end
 
     def post(body)
-      @request = Net::HTTP::Post.new(@uri.path, {'Content-Type' => 'application/json'})
+      @request = Net::HTTP::Post.new(@uri.path, { 'Content-Type' => 'application/json' })
       @request.body = body.to_json
       add_authorization_header
       execute_request
