@@ -8,3 +8,4 @@ gemspec
 gem 'irb'
 gem 'rake', '~> 13.0'
 gem 'rubocop', require: false
+gem 'reek', '~> 4.5', '>= 4.5.6'

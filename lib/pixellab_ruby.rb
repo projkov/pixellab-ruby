@@ -3,7 +3,6 @@
 require_relative 'pixellab_ruby/version'
 require_relative 'pixellab_ruby/client'
 
+# Top-level module for PixellabRuby
 module PixellabRuby
-  class Error < StandardError; end
-  # Your code goes here...
 end
