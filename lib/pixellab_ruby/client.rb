@@ -1,10 +1,16 @@
 # frozen_string_literal: true
 
+require 'async'
+
 require_relative 'request'
+require_relative 'image'
+require_relative 'modules/pixflux'
 
 module PixellabRuby
   # Client class for interacting with the Pixellab API
   class Client
+    include Pixflux
+
     AVAILABLE_ROUTES = {
       generate_image_pixflux: '/generate-image-pixflux',
       get_balance: '/balance'
@@ -12,16 +18,6 @@ module PixellabRuby
 
     def initialize(api_key)
       @api_key = api_key
-    end
-
-    def generate_image_pixflux(description, image_size)
-      request = PixellabRuby::Request.new(@api_key, AVAILABLE_ROUTES[:generate_image_pixflux])
-      request.post(
-        {
-          description: description,
-          image_size: image_size
-        }
-      )
     end
 
     # def animate_with_text(

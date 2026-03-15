@@ -1,4 +1,23 @@
 module PixellabRuby
   VERSION: String
-  # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+  class Client
+    def initialize: (String api_key) -> void
+
+    def generate_image_pixflux: (
+      String description,
+      Hash[Symbol, Integer] image_size,
+      (Hash[Symbol, String] | nil) color_image,
+      (String | nil) detail,
+      (Hash[Symbol, String] | nil) init_image,
+      (Integer | nil) init_image_strength,
+      (bool | nil) isometric,
+      (bool | nil) no_background,
+      (String | nil) outline,
+      (Integer | nil) seed,
+      (String | nil) shading,
+      (Numeric | nil) text_guidance_scale,
+      (String | nil) view
+    ) -> Integer?
+  end
 end

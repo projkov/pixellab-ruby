@@ -7,6 +7,8 @@ require 'uri'
 module PixellabRuby
   # Request class for making HTTP requests to the Pixellab API
   class Request
+    attr_reader :data
+
     SERVER_URL = 'https://api.pixellab.ai/v1'
 
     def initialize(api_key, path)
